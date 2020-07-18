@@ -61,7 +61,7 @@ The **movement sensitivity** setting is important to eliminate false positives f
         if bool(d):
             print(d, time.ctime()) # prints the direction of travel (if any) and timestamp
 ```
-4.  **Run** the *TFLite_Custom.py* from your /object_detection directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. 
+4.  **Run** the *TFLite_Custom.py* from your _TFLite_ directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. 
   **Enable Edge TPU** (optional) by adding the arg _--edgetpu_ in the command line. There are also other commands if you want to lower the resolution for example to increase the framerate. 
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InputSnippet.png" width ="700" />
