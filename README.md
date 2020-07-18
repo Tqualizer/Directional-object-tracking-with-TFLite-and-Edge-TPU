@@ -57,7 +57,7 @@ The **movement sensitivity** setting is important to eliminate false positives f
         if bool(d):
             print(d, time.ctime()) # prints the direction of travel (if any) and timestamp
 ```
-1.  **Run** the *TFLite_Custom.py* from your /object_detection directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. (optional) **Enable Edge TPU** by adding the arg _--edgetpu_ in the commandly 
+4.  **Run** the *TFLite_Custom.py* from your /object_detection directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. (optional) **Enable Edge TPU** by adding the arg _--edgetpu_ in the commandly 
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InputSnippet.png" width ="700" />
  
@@ -87,7 +87,7 @@ objects = ct.update(rects)
    cv2.circle(frame, (centroid[0], centroid[1]), 4, (0, 255, 0), -1)         
 ```
 
-1. Expand the object detection code to compare each frame to the previous frame and calculate object movements:
+2. Expand the object detection code to compare each frame to the previous frame and calculate object movements:
 
 ```
 # On the next loop set the value of these objects as old for comparison
@@ -105,7 +105,7 @@ def DictDiff(dict1, dict2):
 x = DictDiff(objects,old_objects)
 
 ```
-1. Insert the actual movement calculations for each direction:
+3. Insert the actual movement calculations for each direction:
 ```
 #see what the difference in centroids is after every x frames to determine direction of movement and tally up total number of objects that travelled left or right
     if obsFrames % 30 == 0:  # Calculation interval _x_ of frames between each time it calculates the distance travelled.
@@ -124,7 +124,8 @@ x = DictDiff(objects,old_objects)
             else: 
                 d[k] = "Stationary"
 ```
-### Appendix:For Remote logging or object counting guides see my previous project: https://github.com/Tqualizer/opencv-group-detection/blob/master/README.md
+### Appendix
+For Remote logging or object counting guides see my previous project: https://github.com/Tqualizer/opencv-group-detection/blob/master/README.md
 
 
 
