@@ -1,8 +1,7 @@
 # Directional object tracking with TFLite and optional Edge TPU boost
 This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model. In addition it can track for each unique object how it is moving through the frame of vision i.e. if it is moving up /  down / left / right or just stationary
 
-Credits:
-* Main boilerplate for object detection and labelling using TFLite & Edge TPU - Evan Juras 
+Credits:* Main boilerplate for object detection and labelling using TFLite & Edge TPU - Evan Juras 
 https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
 * Centroid tracking helper code for object tracking: 
 https://github.com/lev1khachatryan/Centroid-Based_Object_Tracking 
