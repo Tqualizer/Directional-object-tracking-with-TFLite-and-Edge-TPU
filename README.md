@@ -11,12 +11,16 @@ As with my previous project there is a filter built into the code so the type of
 
 **Practical uses:** By counting the number of objects passing thought the frame in the each direction the code could easily be set as an automated throughfare or doorway monitoring tool under stand flow of 'people' in each direction or calculate how many 'people' are 'inside' at any one time. Add a log file of the movement timestamps to perform further time series analysis of movement e.g. busiest times.
 
+From a personal data perspective it does not store any pictures of the objects or record their features. The code works in realtime from the video stream and only stores co-ordinates.
+
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/IMG_20200718_184111.jpg" width ="700" />
 
 
 ## Introduction
-This is my second Computer Vision project. I built this using a Raspberry Pi 3B+, standard IR camera and Coral Edge TPU accelerator. 
-I had seen some videos and guides on object tracking and thought it would be interesting to try and infer more about how the objects were using. This could also have useful commercial uses for businesses looking for an automated way of tracking number of people inside or traffic drones looking at flows and busy times.
+This is my second Computer Vision project. The main thing holding me back from doing this sooner was that when running Tensor Flow on my Raspberry Pi 3B+ for my previous project, the best framerate I could get was around 3FPS. This worked for object detection but I needed a much higher framerate to continuously track moving objects. I bought a Coral Edge TPU accelerator to help increase the TF calculation speed. This approach meant I could boost the whole process to around 14FPS on a TF Lite model. This was enought to get to work on directional object tracking. 
+
+I built this using a Raspberry Pi 3B+, standard IR camera and Coral Edge TPU accelerator. 
+I had seen some videos and guides on object tracking and thought it would be interesting to try and infer more about how the objects were moving. This could also have useful commercial uses for businesses looking for an automated way of tracking number of people inside or traffic drones looking at flows and busy times.
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InkedCroppedCodeViewer_LI.jpg" width ="700" />
 
