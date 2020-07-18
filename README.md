@@ -18,7 +18,7 @@ As with my previous project there is a filter built into the code so the type of
 This is my second Computer Vision project. I built this using a Raspberry Pi 3B+, standard IR camera and Coral Edge TPU accelerator. 
 I had seen some videos and guides on object tracking and thought it would be interesting to try and infer more about how the objects were using. This could also have useful commercial uses for businesses looking for an automated way of tracking number of people inside or traffic drones looking at flows and busy times.
 
-<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InkedCroppedCodeViewer.jpg" width ="700" />
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InkedCroppedCodeViewer_LI.jpg" width ="700" />
 
 ## The main steps are as follows:
 1. Follow Evan's guide to getting TensorFlow Lite up and running on the Raspberry Pi: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md 
@@ -124,7 +124,7 @@ x = DictDiff(objects,old_objects)
             else: 
                 d[k] = "Stationary"
 ```
-## Appendix:For Remote logging or object counting guides see my previous project: https://github.com/Tqualizer/opencv-group-detection/blob/master/README.md
+### Appendix:For Remote logging or object counting guides see my previous project: https://github.com/Tqualizer/opencv-group-detection/blob/master/README.md
 
 
 
