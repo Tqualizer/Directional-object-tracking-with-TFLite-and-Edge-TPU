@@ -2,9 +2,10 @@
 This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model. In addition it can track for each unique object how it is moving through the frame of vision i.e. if it is moving up /  down / left / right or just stationary
 
 Credits:
-* Main boilerplate for object detection and labelling using TFLite & Edge TPU - Evan Juras https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
-* This code was based off the TensorFlow Lite image classification example at: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/examples/python/label_image.py
-* Centroid tracking helper code for object tracking: https://github.com/lev1khachatryan/Centroid-Based_Object_Tracking 
+* Main boilerplate for object detection and labelling using TFLite & Edge TPU - Evan Juras 
+https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
+* Centroid tracking helper code for object tracking: 
+https://github.com/lev1khachatryan/Centroid-Based_Object_Tracking 
 
 As with my previous project there is a filter built into the code so the type of object to track can be specified. For example it can be set to only track all 'people' moving through the frame but ignore other objects such as dogs or bikes. The results are most accurate when the camera is aimed at a fixed area in which objects will move through over the course of a few seconds. 
 
@@ -21,8 +22,8 @@ I had seen some videos and guides on object tracking and thought it would be int
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/IMG_20200718_184111.jpg" width ="700" />
 
 ## The main steps are as follows:
-1. 
-
+1. Follow Evan's guide to getting TensorFlow Lite up and running on the Raspberry Pi: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md 
+1. **Clone this repo** and save 
 
 
 
