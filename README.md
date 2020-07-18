@@ -11,7 +11,7 @@ As with my previous project there is a filter built into the code so the type of
 
 **Practical uses:** By counting the number of objects passing thought the frame in the each direction the code could easily be set as an automated throughfare or doorway monitoring tool under stand flow of 'people' in each direction or calculate how many 'people' are 'inside' at any one time. Add a log file of the movement timestamps to perform further time series analysis of movement e.g. busiest times.
 
-<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/2020-07-18-174302_1920x1080_scrot.png" width ="700" />
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/IMG_20200718_184111.jpg" width ="700" />
 
 
 ## Introduction
