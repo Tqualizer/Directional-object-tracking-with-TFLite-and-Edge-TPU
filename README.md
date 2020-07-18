@@ -69,7 +69,7 @@ The **movement sensitivity** setting is important to eliminate false positives f
 ## How it works
 
 Starting with the boilerplate object detector from 
-https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi these were the main steps
+https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi these were the _main_ steps
 1. Integrate the centroid tracking to _centroidTracking.py_ from https://github.com/lev1khachatryan/Centroid-Based_Object_Tracking by adding these snippets below:
 ```
 # initialize our centroid tracker and frame dimensions
