@@ -24,9 +24,9 @@ I had seen some videos and guides on object tracking and thought it would be int
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InkedCroppedCodeViewer_LI.jpg" width ="700" />
 
-## The main steps are as follows:
+## The main steps to run are as follows:
 1. Follow Evan's guide to getting TensorFlow Lite up and running on the Raspberry Pi: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md 
-1. Save the _TFLite_Custom.py_ and _centroidtracker.py_ files in the same repo as your TFLite installation.
+1. Save the _TFLite_Custom.py_ and _centroidtracker.py_ files from this repo in the same repo as your TFLite installation.
 1. (optional) **Customisation**
  * Select a custom model (as described in the repo referenced in step 1). 
  For this example I used the same coco model as the boilerplate code but depending on what you want to detect and how accurate you need the model to be, other models can be easily referenced in the code instead. Check out https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md for more resources or have a go at training your own model if you have the necessary hardware https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10.
