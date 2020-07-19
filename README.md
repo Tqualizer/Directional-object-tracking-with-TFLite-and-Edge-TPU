@@ -61,6 +61,13 @@ The **movement sensitivity** setting is important to eliminate false positives f
         if bool(d):
             print(d, time.ctime()) # prints the direction of travel (if any) and timestamp
 ```
+For my project the order of the IF statements did not matter given that left and right are mutually exclusive. As well as changing the order, you could also account for combinations of x and y axis movements by assigning them to compass directions. For example:
+
+```
+            if v[0] > 3 & v[1] >3:
+                d[k] =  "North West"
+```
+
 4.  **Run** the *TFLite_Custom.py* from your _TFLite_ directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. 
   **Enable Edge TPU** (optional) by adding the arg _--edgetpu_ in the command line. There are also other commands if you want to lower the resolution for example to increase the framerate. 
 
