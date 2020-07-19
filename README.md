@@ -9,7 +9,7 @@ https://github.com/lev1khachatryan/Centroid-Based_Object_Tracking
 
 As with my previous project there is a filter built into the code so the type of object to track can be specified. For example it can be set to only track all 'people' moving through the frame but ignore other objects such as dogs or bikes. The results are most accurate when the camera is aimed at a fixed area in which objects will move through over the course of a few seconds. 
 
-**Practical uses:** By counting the number of objects passing thought the frame in the each direction the code could easily be set as an automated throughfare or doorway monitoring tool under stand flow of 'people' in each direction or calculate how many 'people' are 'inside' at any one time. Add a log file of the movement timestamps to perform further time series analysis of movement e.g. busiest times.
+**Practical uses:** By counting the number of objects passing thought the frame in the each direction the code could easily be set as an automated throughfare or doorway monitoring tool to understand the flow of 'people' in each direction or calculate how many 'people' are 'inside' at any one time. Add a log file of the movement timestamps to perform further time series analysis of movement e.g. busiest times.
 
 From a personal data perspective it does not store any pictures of the objects or record their features. The code works in realtime from the video stream and only stores co-ordinates.
 
