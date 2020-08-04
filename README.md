@@ -1,5 +1,7 @@
 # Directional object tracking with TFLite and optional Edge TPU boost
-This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model. In addition, it can track each unique object in terms of how it is moving through the frame of vision i.e. if it is moving up /  down / left / right or just stationary.
+This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model. In addition, it can track each unique object in terms of how it is moving through the frame of vision i.e. if it is moving up /  down / left / right or just stationary. There are two main scripts: one takes a live video feed from Raspberry Pi camera; the other analyses an existing video file.
+
+[![](http://img.youtube.com/vi/AyPSWzCzUjc/0.jpg)](http://www.youtube.com/watch?v=AyPSWzCzUjc "Direction tracking")
 
 Credits:
 * Main boilerplate for object detection and labelling using TFLite & Edge TPU - Evan Juras 
@@ -10,6 +12,8 @@ https://github.com/lev1khachatryan/Centroid-Based_Object_Tracking
 As with my previous project there is a filter built into the code so the type of object to track can be specified. For example it can be set to only track all 'people' moving through the frame but ignore other objects such as dogs or bikes. The results are most accurate when the camera is aimed at a fixed area in which objects will move through over the course of a few seconds. 
 
 **Practical uses:** By counting the number of objects passing thought the frame in the each direction the code could easily be set as an automated throughfare or doorway monitoring tool to understand the flow of 'people' in each direction or calculate how many 'people' are 'inside' at any one time. Add a log file of the movement timestamps to perform further time series analysis of movement e.g. busiest times.
+
+[![](http://img.youtube.com/vi/AyPSWzCzUjc/0.jpg)](http://www.youtube.com/watch?v=AyPSWzCzUjc "Direction tracking")
 
 From a personal data perspective it does not store any pictures of the objects or record their features. The code works in realtime from the video stream and only stores co-ordinates.
 
