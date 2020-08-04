@@ -13,8 +13,6 @@ As with my previous project there is a filter built into the code so the type of
 
 **Practical uses:** By counting the number of objects passing thought the frame in the each direction the code could easily be set as an automated throughfare or doorway monitoring tool to understand the flow of 'people' in each direction or calculate how many 'people' are 'inside' at any one time. Add a log file of the movement timestamps to perform further time series analysis of movement e.g. busiest times.
 
-[![](http://img.youtube.com/vi/AyPSWzCzUjc/0.jpg)](http://www.youtube.com/watch?v=AyPSWzCzUjc "Direction tracking")
-
 From a personal data perspective it does not store any pictures of the objects or record their features. The code works in realtime from the video stream and only stores co-ordinates.
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/IMG_20200718_184111.jpg" width ="700" />
