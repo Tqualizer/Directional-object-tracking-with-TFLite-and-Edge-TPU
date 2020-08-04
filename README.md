@@ -13,7 +13,7 @@ As with my previous project there is a filter built into the code so the type of
 
 From a personal data perspective it does not store any pictures of the objects or record their features. The code works in realtime from the video stream and only stores co-ordinates.
 
-<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/IMG_20200718_184111.jpg" width ="700" />
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/IMG_20200718_184111.jpg" width ="700" />
 
 
 ## Introduction
@@ -22,7 +22,7 @@ This is my second Computer Vision project. The main thing holding me back from d
 I built this using a Raspberry Pi 3B+, standard IR camera and Coral Edge TPU accelerator. 
 I had seen some videos and guides on object tracking and thought it would be interesting to try and infer more about how the objects were moving. This could also have useful commercial uses for businesses looking for an automated way of tracking number of people inside or traffic drones looking at flows and busy times.
 
-<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InkedCroppedCodeViewer_LI.jpg" width ="700" />
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/InkedCroppedCodeViewer_LI.jpg" width ="700" />
 
 ## The main steps to run are as follows:
 1. Follow Evan's guide to getting TensorFlow Lite up and running on the Raspberry Pi: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md 
@@ -71,7 +71,7 @@ For my project the order of the IF statements did not matter given that left and
 4.  **Run** the *TFLite_Custom.py* from your _TFLite_ directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. 
   **Enable Edge TPU** (optional) by adding the arg _--edgetpu_ in the command line. There are also other commands if you want to lower the resolution for example to increase the framerate. 
 
-<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/InputSnippet.png" width ="700" />
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/InputSnippet.png" width ="700" />
  
 ## How it works
 
