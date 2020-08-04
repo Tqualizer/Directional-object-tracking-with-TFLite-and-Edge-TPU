@@ -1,7 +1,11 @@
 # Directional object tracking with TFLite and optional Edge TPU boost
 This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model. In addition, it can track each unique object in terms of how it is moving through the frame of vision i.e. if it is moving up /  down / left / right or just stationary. There are two main scripts: one takes a live video feed from Raspberry Pi camera; the other analyses an existing video file.
 
-[![](http://img.youtube.com/vi/AyPSWzCzUjc/0.jpg)](http://www.youtube.com/watch?v=AyPSWzCzUjc "Direction tracking")
+<div align="center">
+      <a href="http://www.youtube.com/watch?v=AyPSWzCzUjc/">
+         <img src="http://img.youtube.com/vi/AyPSWzCzUjc/0.jpg" style="width:200%;">
+      </a>
+</div>
 
 Credits:
 * Main boilerplate for object detection and labelling using TFLite & Edge TPU - Evan Juras 
