@@ -56,6 +56,7 @@ args = parser.parse_args()
 ct = CentroidTracker()
 objects ={}
 old_objects={}
+dirlabels={}
 
 # compare the co-ordinates for dictionaries of interest
 def DictDiff(dict1, dict2):
@@ -216,7 +217,6 @@ while(video.isOpened()): # Uncomment block for recorded video input
         cv2.putText(frame, text, (row['c'] - 10, row['d'] - 10),
             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     
-    
     # calculate the difference between this and the previous frame
     x = DictDiff(objects,old_objects)
     difflist= pd.DataFrame.from_dict(x).transpose()
@@ -224,35 +224,41 @@ while(video.isOpened()): # Uncomment block for recorded video input
     difflist['index'] = difflist.index
     z = difflist.merge(objectslist,left_on = 'index', right_on = 'index', suffixes=('_diff','_current'))
 
+    dirx = z['c']
+    diry = z['d']
+
+    for i,j,k in zip(dirlabels,dirx,diry):
+        direction = format(dirlabels[i])
+        cv2.putText(frame, direction, (j+ 10, k + 10),
+        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (60, 60, 255), 2)       
+
     #see what the difference in centroids is after every x frames to determine direction of movement
     #and tally up total number of objects that travelled left or right
     if obsFrames % 5 == 0: #set this to a higher number for more accurate tallying
-        z.loc[z['a'] > 1, 'e'] ="Left"
-        z.loc[z['a'] < -1, 'e'] ="Right"
-        z.loc[z['b'] > 1, 'e'] ="Up"
-        z.loc[z['b'] < -1, 'e'] ="Down"
-        z.fillna('',inplace = True)
-
-        for index,row in z.iterrows():
-            # draw both the ID of the object and the centroid of the
-            # object on the output frame
-            if row['e'] != "":
-                direction = format(row['e'])
-                cv2.putText(frame, direction, (row['c'] + 10, row['d'] + 10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-            if row['e'] == "Up":
-                upcount = upcount+1
-            if row['e'] == "Down":
-                downcount = downcount+1            
-            if row['e'] == "Left":
-                leftcount = leftcount+1
-            if row['e'] == "Right":
-                rightcount = rightcount+1
-    
+      for index,row in z.iterrows():
+            
+            if row['b'] < -2:
+                dirlabels[index] = "Down"
+            if row['b'] > 2 :
+                dirlabels[index] = "Up"   
+            if row['a'] > 2:
+                dirlabels[index] = "Left"
+            if row['a'] < -2:
+                dirlabels[index] = "Right"
+            if row['b'] > 3 & row['a'] > 1:
+                dirlabels[index] = "Up Left"
+            if row['b'] > 3 & row['a'] < -1:
+                dirlabels[index] = "Up Right"
+            if row['b'] < -3 & row['a'] > 1:
+                dirlabels[index] = "Down Left"
+            if row['b'] < -3 & row['a'] < -1:
+                dirlabels[index] = "Down Right"
+            if row['b'] > 30 | row['a'] > 30:
+                dirlabels[index] = "" # to ignore direction on the first frame obejects are loaded in
+      
     # prints the direction of travel (if any) and timestamp
-    print("Up",upcount,"Down",downcount,"Left",leftcount,"Right",rightcount, time.ctime())
+    print(dirlabels, time.ctime())
     
-
     # Draw framerate in corner of frame
     cv2.putText(frame,'FPS: {0:.2f}'.format(frame_rate_calc),(30,50),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,0),2,cv2.LINE_AA)
 
