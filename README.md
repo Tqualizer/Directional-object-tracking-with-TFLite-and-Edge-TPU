@@ -2,8 +2,8 @@
 This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model. In addition, it can track each unique object in terms of how it is moving through the frame of vision i.e. if it is moving up /  down / left / right or just stationary. There are two main scripts: one takes a live video feed from Raspberry Pi camera; the other analyses an existing video file.
 
 <div align="center">
-      <a href="http://www.youtube.com/watch?v=AyPSWzCzUjc/">
-         <img src="http://img.youtube.com/vi/AyPSWzCzUjc/0.jpg" style="width:200%;">
+      <a href="https://youtu.be/lGIXOZn9Cvw/">
+         <img src="http://img.youtube.com/vi/lGIXOZn9Cvw/0.jpg" style="width:200%;">
       </a>
 </div>
 
