@@ -1,6 +1,6 @@
 ######## Directional-object-tracking-with-TFLite-and-Edge-TPU #########
 # Author: Tahir Mahmood
-# Date: 18/7/2020
+# Date: 05/08/2020
 # This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model.
 # In addition it can track for each unique object how it is moving through the frame of vision.
 # As with my previous project there is a filter built into the code so the type of object to track can be specified.
