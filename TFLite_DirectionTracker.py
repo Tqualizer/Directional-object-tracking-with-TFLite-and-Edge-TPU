@@ -1,6 +1,6 @@
 ######## Directional-object-tracking-with-TFLite-and-Edge-TPU #########
 # Author: Tahir Mahmood
-# Date: 02/08/2020
+# Date: 05/08/2020
 # Latest commit update: Onscreen labels and more accurate tracking
 
 # This code performs object detection and tracking using a pre-trained Tensor Flow Lite (TFLite) model.
