@@ -90,7 +90,7 @@ For my project the order of the IF statements did not matter given that left and
 ```
 The script will then run through your video file labeling the direction of each moving object which meets the criteria you originally specified.
 
-<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/output_Moment.png" width ="700" />
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/output_Moment.jpg" width ="700" />
 
 
 
