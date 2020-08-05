@@ -30,9 +30,9 @@ I had seen some videos and guides on object tracking and thought it would be int
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/InkedCroppedCodeViewer_LI.jpg" width ="700" />
 
-## The main steps to run are as follows:
+## How to set up the live object direction tracker
 1. Follow Evan's guide to getting TensorFlow Lite up and running on the Raspberry Pi: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md 
-1. Save the _TFLite_Custom.py_ and _centroidtracker.py_ files from this repo in the same repo as your TFLite installation.
+1. Save the _TFLite_DirectionLive.py_ and _centroidtracker.py_ files from this repo in the same repo as your TFLite installation.
 1. (optional) **Customisation**
  * Select a custom model (as described in the repo referenced in step 1). 
  For this example I used the same coco model as the boilerplate code but depending on what you want to detect and how accurate you need the model to be, other models can be easily referenced in the code instead. Check out https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md for more resources or have a go at training your own model if you have the necessary hardware https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10.
@@ -74,11 +74,26 @@ For my project the order of the IF statements did not matter given that left and
                 d[k] =  "North West"
 ```
 
-4.  **Run** the *TFLite_Custom.py* from your _TFLite_ directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. 
+4.  **Run** the *TFLite_DirectionLive.py* from your _TFLite_ directory. To safely stop the process and save outputs press 'q' on the object viewer or Ctrl + C in the command line to exit. 
   **Enable Edge TPU** (optional) by adding the arg _--edgetpu_ in the command line. There are also other commands if you want to lower the resolution for example to increase the framerate. 
 
 <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/InputSnippet.png" width ="700" />
- 
+
+## How to set up directional tracking for an existing video file
+1. Continuing from the steps above, download *TFLite_DirectionTracker.py* from this repo. 
+
+1. Apply any steps above needed for customisation such as specifying the object type you want to track or finetuneing the movement thresholds or sensitivity.
+
+1. When running group_detection_recorded.py from the command line, specify in the input filename in the --args:
+```
+/tflite1 python3 group_detection_recorded.py --edgetpu --video yourvideofile.mp4
+```
+The script will then run through your video file labeling the direction of each moving object which meets the criteria you originally specified.
+
+<img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/output_Moment.png" width ="700" />
+
+
+
 ## How it works
 
 Starting with the boilerplate object detector from 
@@ -123,24 +138,48 @@ def DictDiff(dict1, dict2):
 x = DictDiff(objects,old_objects)
 
 ```
-3. Insert the actual movement calculations for each direction:
+3. Insert the actual movement calculations for each direction.
+* Get the co-ordinates of where each object is and where to put the label.
 ```
-#see what the difference in centroids is after every x frames to determine direction of movement and tally up total number of objects that travelled left or right
-    if obsFrames % 30 == 0:  # Calculation interval _x_ of frames between each time it calculates the distance travelled.
-        d = {}
-        for k,v in x.items():
-            if v[0] > 3:  # This number is the sensitivity for positive x axis movement
-                d[k] =  "Left"
-                leftcount = leftcount + 1 
-            elif v[0]< -3: # This number is the sensitivity for negative x axis movement
-                d[k] =  "Right"
-                rightcount = rightcount + 1 
-            elif v[1]> 3: # This number is the sensitivity for positive y axis movement
-                d[k] =  "Up"
-            elif v[1]< -3: # This number is the sensitivity for negative y axis movement
-                d[k] =  "Down"
-            else: 
-                d[k] = "Stationary"
+    difflist= pd.DataFrame.from_dict(x).transpose()
+    difflist.columns = ['a','b']
+    difflist['index'] = difflist.index
+    z = difflist.merge(objectslist,left_on = 'index', right_on = 'index', suffixes=('_diff','_current'))
+
+    dirx = z['c']
+    diry = z['d']
+
+    for i,j,k in zip(dirlabels,dirx,diry):
+        direction = format(dirlabels[i])
+        cv2.putText(frame, direction, (j+ 10, k + 10),
+        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (60, 60, 255), 2)       
+```
+* Calculate the direction and set how often you want to refresh the direction.
+```
+    #see what the difference in centroids is after every x frames to determine direction of movement
+    #and tally up total number of objects that travelled left or right
+    if obsFrames % 5 == 0: #set this to a higher number for more accurate tallying
+      for index,row in z.iterrows():
+            
+            if row['b'] < -2:
+                dirlabels[index] = "Down"
+            if row['b'] > 2 :
+                dirlabels[index] = "Up"   
+            if row['a'] > 2:
+                dirlabels[index] = "Left"
+            if row['a'] < -2:
+                dirlabels[index] = "Right"
+            if row['b'] > 3 & row['a'] > 1:
+                dirlabels[index] = "Up Left"
+            if row['b'] > 3 & row['a'] < -1:
+                dirlabels[index] = "Up Right"
+            if row['b'] < -3 & row['a'] > 1:
+                dirlabels[index] = "Down Left"
+            if row['b'] < -3 & row['a'] < -1:
+                dirlabels[index] = "Down Right"
+            if row['b'] > 30 | row['a'] > 30:
+                dirlabels[index] = "" # to ignore direction on the first frame obejects are loaded in
+
 ```
 ### Appendix
 For Remote logging or object counting guides see my previous project: https://github.com/Tqualizer/opencv-group-detection/blob/master/README.md
