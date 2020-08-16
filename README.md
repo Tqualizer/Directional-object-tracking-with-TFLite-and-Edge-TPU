@@ -3,7 +3,7 @@ This code performs object detection and tracking using a pre-trained Tensor Flow
 
 <div align="center">
       <a href="https://youtu.be/lGIXOZn9Cvw/">
-         <img src="http://img.youtube.com/vi/lGIXOZn9Cvw/0.jpg" style="width:200%;">
+         <img src="https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU/blob/master/Examples/TFdirectionYT.png" width ="700" />
       </a>
 </div>
 
